@@ -1,22 +1,25 @@
 package com.magierowski.SalesManager.domain.model;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
-public class InvoiceSummary  {
+public class InvoiceSummary {
 	private BigDecimal taxTotal;
 	private BigDecimal netTotal;
 	private BigDecimal grossTotal;
-	
-	public InvoiceSummary(BigDecimal taxTotal, BigDecimal netTotal, BigDecimal grossTotal) {
+	private LocalDate date;
+
+	public InvoiceSummary(BigDecimal taxTotal, BigDecimal netTotal, BigDecimal grossTotal, LocalDate date) {
 		super();
-		
-		if(taxTotal.add(netTotal).compareTo(grossTotal) != 0) {
+
+		if (taxTotal.add(netTotal).compareTo(grossTotal) != 0) {
 			throw new InternalError("Data consistency error: net and tax don't sum up to gross");
 		}
-		
+
 		this.taxTotal = taxTotal;
 		this.netTotal = netTotal;
 		this.grossTotal = grossTotal;
+		this.date = date;
 	}
 
 	public BigDecimal getTaxTotal() {
@@ -30,4 +33,9 @@ public class InvoiceSummary  {
 	public BigDecimal getGrossTotal() {
 		return grossTotal;
 	}
+
+	public LocalDate getDate() {
+		return date;
+	}
+
 }

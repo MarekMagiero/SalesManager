@@ -8,7 +8,6 @@ import java.time.LocalDate;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.SocketUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,12 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.magierowski.SalesManager.domain.model.Client;
-import com.magierowski.SalesManager.domain.model.Issuer;
 import com.magierowski.SalesManager.domain.model.Invoice;
-import com.magierowski.SalesManager.domain.model.InvoiceSummary;
+import com.magierowski.SalesManager.domain.model.Issuer;
 import com.magierowski.SalesManager.domain.model.Order;
 import com.magierowski.SalesManager.domain.model.OrderItem;
-import com.magierowski.SalesManager.domain.service.InvoiceGenerator;
 
 @RestController
 public class SalesController {
@@ -40,7 +37,7 @@ public class SalesController {
 		order.addItem(new OrderItem("konik", 1, valueOf(100), valueOf(0.1)));
 		order.addItem(new OrderItem("puzzle", 10, valueOf(10), valueOf(0.5)));
 		
-		Invoice invoice = new Invoice(order, client, issuer);		
+		Invoice invoice = new Invoice(order, client, issuer, LocalDate.now());		
 		
 		return ResponseEntity.ok(invoice);
 	}
