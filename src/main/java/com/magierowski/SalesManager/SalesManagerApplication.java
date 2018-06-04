@@ -23,7 +23,4 @@ public class SalesManagerApplication {
 	 * - zapisywanie danych do bazy MySQL
 	 * - obsługa błędów
 	 */
-	
-	// git init
-	// git push
 }
