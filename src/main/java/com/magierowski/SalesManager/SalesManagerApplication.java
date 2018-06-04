@@ -17,9 +17,9 @@ public class SalesManagerApplication {
 	 * - logika fakturowania
 	 * - zwracanie info o fakturze
 	 * - przyjmowanie danych
+	 * - wersjonowanie kodu w GIT (GitHub)
 	 * 
 	 * Do zrobienia:
-	 * - wersjonowanie kodu w GIT (GitHuba)
 	 * - zapisywanie danych do bazy MySQL
 	 * - obsługa błędów
 	 */
