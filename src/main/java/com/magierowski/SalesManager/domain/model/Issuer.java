@@ -1,12 +1,20 @@
 package com.magierowski.SalesManager.domain.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+@Entity
 public class Issuer {
 
+	@Id
+	@NotNull
+	private String nip;
+	
 	private String name;
 	private String address;
 	private String zipCode;
 	private String city;
-	private String nip;
 	private String bankName;
 	private String bankAccount;
 
